@@ -7,8 +7,10 @@
 //
 
 import UIKit
+
+
 protocol KLTreeDrawerDelegate : NSObjectProtocol {
-    var nodeView : UIView! { get set }
+    var nodeView : KLBasicNodeView! { get set }
     
     //number of leaf children
     var weight: Int { get set }
@@ -25,3 +27,4 @@ protocol KLTreeDrawerDelegate : NSObjectProtocol {
     
     func viewTapped(ges: UITapGestureRecognizer)
 }
+

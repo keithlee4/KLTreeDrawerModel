@@ -17,6 +17,10 @@
 		7A38B0D31D9E48D800AFE577 /* KLTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A38B0D21D9E48D800AFE577 /* KLTreeView.swift */; };
 		8B22A3EC1DA26BD3009CA857 /* KLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B22A3EB1DA26BD3009CA857 /* KLNode.swift */; };
 		8B22A3EF1DA2710A009CA857 /* KLNodeDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B22A3EE1DA2710A009CA857 /* KLNodeDependency.swift */; };
+		8B5A986E1DA35AE700552B7A /* KLBasicNodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5A986D1DA35AE700552B7A /* KLBasicNodeView.swift */; };
+		8B5A98701DA35AFD00552B7A /* KLBasicNodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B5A986F1DA35AFD00552B7A /* KLBasicNodeView.xib */; };
+		8B5A98721DA3813900552B7A /* KLHiearchyScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5A98711DA3813900552B7A /* KLHiearchyScrollView.swift */; };
+		8B5A98741DA381B400552B7A /* KLTreeDrawerGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5A98731DA381B400552B7A /* KLTreeDrawerGlobals.swift */; };
 		8B75BC031DA20AAD00606980 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B75BC021DA20AAD00606980 /* UIColor+Hex.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +37,10 @@
 		7A38B0D21D9E48D800AFE577 /* KLTreeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLTreeView.swift; sourceTree = "<group>"; };
 		8B22A3EB1DA26BD3009CA857 /* KLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLNode.swift; sourceTree = "<group>"; };
 		8B22A3EE1DA2710A009CA857 /* KLNodeDependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLNodeDependency.swift; sourceTree = "<group>"; };
+		8B5A986D1DA35AE700552B7A /* KLBasicNodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLBasicNodeView.swift; sourceTree = "<group>"; };
+		8B5A986F1DA35AFD00552B7A /* KLBasicNodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KLBasicNodeView.xib; sourceTree = "<group>"; };
+		8B5A98711DA3813900552B7A /* KLHiearchyScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLHiearchyScrollView.swift; sourceTree = "<group>"; };
+		8B5A98731DA381B400552B7A /* KLTreeDrawerGlobals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLTreeDrawerGlobals.swift; sourceTree = "<group>"; };
 		8B75BC021DA20AAD00606980 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +102,10 @@
 			children = (
 				7A38B0D01D9E461200AFE577 /* KLTreeDrawerDelegate.swift */,
 				7A38B0D21D9E48D800AFE577 /* KLTreeView.swift */,
+				8B5A986D1DA35AE700552B7A /* KLBasicNodeView.swift */,
+				8B5A986F1DA35AFD00552B7A /* KLBasicNodeView.xib */,
+				8B5A98711DA3813900552B7A /* KLHiearchyScrollView.swift */,
+				8B5A98731DA381B400552B7A /* KLTreeDrawerGlobals.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -160,6 +172,7 @@
 			files = (
 				7A38B0C91D9E459400AFE577 /* LaunchScreen.storyboard in Resources */,
 				7A38B0C61D9E459400AFE577 /* Assets.xcassets in Resources */,
+				8B5A98701DA35AFD00552B7A /* KLBasicNodeView.xib in Resources */,
 				7A38B0C11D9E459400AFE577 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,10 +187,13 @@
 				7A38B0D11D9E461200AFE577 /* KLTreeDrawerDelegate.swift in Sources */,
 				7A38B0C41D9E459400AFE577 /* KLTreeDrawerModel.xcdatamodeld in Sources */,
 				7A38B0BE1D9E459400AFE577 /* ViewController.swift in Sources */,
+				8B5A98721DA3813900552B7A /* KLHiearchyScrollView.swift in Sources */,
 				8B75BC031DA20AAD00606980 /* UIColor+Hex.swift in Sources */,
 				7A38B0BC1D9E459400AFE577 /* AppDelegate.swift in Sources */,
 				8B22A3EF1DA2710A009CA857 /* KLNodeDependency.swift in Sources */,
+				8B5A98741DA381B400552B7A /* KLTreeDrawerGlobals.swift in Sources */,
 				7A38B0D31D9E48D800AFE577 /* KLTreeView.swift in Sources */,
+				8B5A986E1DA35AE700552B7A /* KLBasicNodeView.swift in Sources */,
 				8B22A3EC1DA26BD3009CA857 /* KLNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -89,12 +89,12 @@ class KLTreeView:UIView {
             //vertical line
             //the vertical lines in the T shape lines
             let start2_X = startX + node.nodeView.bounds.size.width / 2
-            let start2_Y = CGFloat(row + 1) * (gap.height + node.nodeView.bounds.size.height) + 1.0 * node.nodeView.bounds.size.height + viewShift.y
+            let start2_Y = CGFloat(row + 1) * (gap.height + node.nodeView.bounds.size.height) + (1.0 * node.nodeView.bounds.size.height) + viewShift.y
             
             let start2 = CGPoint(x: start2_X, y: start2_Y)
             
             let end2_X =  startX + node.nodeView.bounds.size.width / 2
-            let end2_Y = CGFloat(row + 1) * (gap.height + node.nodeView.bounds.size.height) + 1.0 * node.nodeView.bounds.size.height + 0.5 * gap.height + viewShift.y
+            let end2_Y = CGFloat(row + 1) * (gap.height + node.nodeView.bounds.size.height) + (1.0 * node.nodeView.bounds.size.height) + (0.5 * gap.height) + viewShift.y
             
             let end2 = CGPoint(x: end2_X, y: end2_Y)
             
@@ -111,8 +111,8 @@ class KLTreeView:UIView {
             
             // horizontal line
             //the horizontal line in the T shape lines
-            let start3_Y = CGFloat(row + 1) * (gap.height + node.nodeView.bounds.size.height) + 1.0 * node.nodeView.bounds.size.height + 0.5 * gap.height + viewShift.y
-            let end3_Y = CGFloat(row + 1) * (gap.height + node.nodeView.bounds.size.height) + 1.0 * node.nodeView.bounds.size.height + 0.5 * gap.height + viewShift.y
+            let start3_Y = CGFloat(row + 1) * (gap.height + node.nodeView.bounds.size.height) + (1.0 * node.nodeView.bounds.size.height) + (0.5 * gap.height) + viewShift.y
+            let end3_Y = CGFloat(row + 1) * (gap.height + node.nodeView.bounds.size.height) + (1.0 * node.nodeView.bounds.size.height) + (0.5 * gap.height) + viewShift.y
             
             let start3 = CGPoint(x: firstChildX, y: start3_Y)
             let end3 = CGPoint(x: lastChildX, y: end3_Y)
@@ -139,13 +139,14 @@ class KLTreeView:UIView {
         node.nodeView.frame = nodeFrame
         
         self.addSubview(node.nodeView)
+        addTapGesture(to: node)
         
     }
     
     //Add tap gesture to the view in the node
     //TODO: - Gesture Handler should be implemented in delegate
     func addTapGesture(to node:KLTreeDrawerDelegate){
-        let tapGes = UITapGestureRecognizer.init(target: node, action: Selector(("viewTapped:")))
+        let tapGes = UITapGestureRecognizer.init(target: node, action: nil)
         node.nodeView.addGestureRecognizer(tapGes)
     }
     
@@ -162,11 +163,13 @@ class KLTreeView:UIView {
     func dfSearch(For node:KLTreeDrawerDelegate, withRowNumber row:Int, withRows rowsStart:inout [Int]){
         //visit and draw node
         let rowWidth: CGFloat = CGFloat(node.weight) * (node.nodeView.bounds.size.width + gap.width)
-        if node.children?.count == 0 {
+        if node.children == nil || node.children?.count == 0 {
             drawViewWith(startNode: node, rowWidth: Int(rowWidth), rowNumber: row)
         }
-        
-        for child in node.children! {
+        guard let children = node.children else{
+            return
+        }
+        for child in children {
             if row + 1 > rowsStart.count {
                 //means the rowStart of this row is not stored yet, the func assume that row can only be larger than rowsStart.count by 1
                 rowsStart.append(node.startX)
