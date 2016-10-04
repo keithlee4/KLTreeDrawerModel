@@ -28,11 +28,11 @@ class ViewController: UIViewController {
     func setup() -> KLTreeDrawerDelegate {
         let root = KLNode.random()
         
-        let level1 : Int = 3
+        let level1 : Int = 4
         let level2 : Int = 2
 //        var level3 : Int = 4
         
-        /*var children = [KLNode]()
+        var children = [KLNode]()
         for _ in 0..<level1{
             children.append(KLNode.random())
         }
@@ -45,8 +45,8 @@ class ViewController: UIViewController {
         }
         
         for child1 in root.children! {
-            child1.children = children
-        }*/
+            child1.children = [KLNode.random(), KLNode.random(), KLNode.random()]
+        }
         
         return root
     }

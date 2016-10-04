@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 protocol KLTreeDrawerDelegate : NSObjectProtocol {
     var nodeView : KLBasicNodeView! { get set }
     
@@ -21,10 +20,9 @@ protocol KLTreeDrawerDelegate : NSObjectProtocol {
     //background of the container view of nodes
     var backgroundColor: UIColor? { get set }
     
-    var identifier: String! { get set }
     
     var children: [KLTreeDrawerDelegate]? { get set }
     
-    func viewTapped(ges: UITapGestureRecognizer)
+    func viewTapped()
 }
 

@@ -27,13 +27,13 @@ protocol KLNodeInterface {
 }
 
 class KLNode: NSObject, KLTreeDrawerDelegate, KLNodeInterface {
+
     //MARK: - Var 
     //MARK: Tree Drawer Delegate
     var nodeView: KLBasicNodeView!
     var weight: Int = 0
     var startX: Int = 0
     var backgroundColor: UIColor?
-    var identifier: String!
     var children: [KLTreeDrawerDelegate]?
     //MARK: -
     
@@ -50,7 +50,7 @@ class KLNode: NSObject, KLTreeDrawerDelegate, KLNodeInterface {
     
     var presenter: KLNodePresenter!
     
-    func viewTapped(ges: UITapGestureRecognizer) {
+    func viewTapped() {
         print("tapped~~~~~")
         self.presenter.nodeViewTapped()
     }

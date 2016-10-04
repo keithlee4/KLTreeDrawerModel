@@ -146,7 +146,7 @@ class KLTreeView:UIView {
     //Add tap gesture to the view in the node
     //TODO: - Gesture Handler should be implemented in delegate
     func addTapGesture(to node:KLTreeDrawerDelegate){
-        let tapGes = UITapGestureRecognizer.init(target: node, action: nil)
+        let tapGes = UITapGestureRecognizer.init(target: node, action: Selector(("viewTapped")))
         node.nodeView.addGestureRecognizer(tapGes)
     }
     
@@ -240,7 +240,9 @@ class KLTreeView:UIView {
         
         for i in 0..<children.count {
             let child = children[i]
-            tree.weight += updateWeights(For: child)
+            let childWight = updateWeights(For: child)
+            
+            tree.weight += childWight
         }
         
         return tree.weight
@@ -281,7 +283,7 @@ class KLTreeView:UIView {
             }
         }
         
-        return maxHeight
+        return maxHeight + 1
     }
     
     
