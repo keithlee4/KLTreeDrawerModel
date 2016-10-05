@@ -15,3 +15,5 @@ let kTreeScrollViewOriginalZoomScale: CGFloat = 1.0
 let kTreeScrollViewMaxZoomScale: CGFloat = 2.0
 
 let kTreeScrollViewTapGesture_NumberOfTapsRequired : Int = 2
+
+let kNodeSize : CGSize = CGSize(width: 100, height: 100)

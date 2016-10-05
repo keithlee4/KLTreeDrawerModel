@@ -26,29 +26,33 @@ class ViewController: UIViewController {
 
 
     func setup() -> KLTreeDrawerDelegate {
-        let root = KLNode.random()
+        let root = KLTreeTestGenerator.genTree(for:[2,3,2])
         
-        let level1 : Int = 3
+        /*let root = KLNode.random()
+        
+        let level1 : Int = 10
         let level2 : Int = 2
 //        var level3 : Int = 4
         
-        var children = [KLNode]()
+        var children = [KLSubNode]()
         for _ in 0..<level1{
-            children.append(KLNode.random())
+            children.append(KLSubNode.random())
         }
         
         root.children = children
         
         children.removeAll()
         for _ in 0..<level2{
-            children.append(KLNode.random())
+            children.append(KLSubNode.random())
         }
         
         for child1 in root.children! {
-            child1.children = [KLNode.random(), KLNode.random()]
-        }
+            child1.children = [KLSubNode.random(), KLSubNode.random()]
+        }*/
         
         return root
     }
+    
+    
 }
 

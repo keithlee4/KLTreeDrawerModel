@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="obH-Kg-Vbb"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="obH-Kg-Vbb"/>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDJ-nH-QOy">
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -37,6 +37,7 @@
             </constraints>
             <connections>
                 <outlet property="accountNameLabel" destination="BDJ-nH-QOy" id="1L4-t4-FkZ"/>
+                <outlet property="imageView" destination="obH-Kg-Vbb" id="3of-6V-ywo"/>
                 <outlet property="valueLabel" destination="gCC-s6-gdC" id="TTN-GB-cO5"/>
             </connections>
             <point key="canvasLocation" x="54" y="53"/>

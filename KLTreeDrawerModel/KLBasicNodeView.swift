@@ -11,17 +11,20 @@ import UIKit
 let kBasicNodeValueNilDefault : Double = 0
 
 protocol KLBasicNodeInterface {
+    associatedtype NodeType
+    
     //This var is the xib || storyboard name of this node view.
-    static var xibName : String { get }
+    static func xibName() -> String
     
-    var node: KLNode! { get set }
-    
+    var node: NodeType! { get set }
     //This func is call to update all the layout from node's var change
     func updateLayout()
 }
 
 class KLBasicNodeView: UIView, KLBasicNodeInterface {
-
+    typealias NodeType = KLNode
+    
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var accountNameLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
     
@@ -33,30 +36,38 @@ class KLBasicNodeView: UIView, KLBasicNodeInterface {
     }
     */
 
-    var node: KLNode!
+    var node: NodeType!
     
-    static var xibName: String {
+    class func xibName() -> String {
         return "KLBasicNodeView"
     }
     
-    static func xibInstance(with frame:CGRect, node:KLNode) -> KLBasicNodeView? {
-       guard let instance : KLBasicNodeView = Bundle.main.loadNibNamed(xibName, owner: nil
+    
+    class func xibInstance<T>(with frame:CGRect, node:KLNode) -> T? where T : KLBasicNodeView {
+       guard let instance = Bundle.main.loadNibNamed(xibName(), owner: nil
             , options: nil
-        )?.first as? KLBasicNodeView else{
+        )?.first as? T else{
             return nil
         }
+        
         
         instance.frame = frame
         instance.node = node
         
         instance.updateLayout()
         
-        return instance
+        return instance 
     }
     
     func updateLayout() {
         accountNameLabel.text = node.accountName
         valueLabel.text = NSString.init(format: "%.2f", node.value ?? kBasicNodeValueNilDefault) as String
+        
+        if let imgName = node.imageName{
+            imageView.image = UIImage.init(named: imgName)
+        }
+        
+        self.backgroundColor = node.mainColor
     }
 
 }

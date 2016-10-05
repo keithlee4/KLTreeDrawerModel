@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="KLSubNodeView" customModule="KLTreeDrawerModel" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MlF-dS-xpQ"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2L2-0I-Ksh">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhW-Qp-8b0">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mT5-kp-4PZ">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.6885039210319519" green="1" blue="0.5829627513885498" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="bhW-Qp-8b0" firstAttribute="top" secondItem="2L2-0I-Ksh" secondAttribute="bottom" constant="8" id="3Wx-gP-Cwi"/>
+                <constraint firstItem="2L2-0I-Ksh" firstAttribute="centerX" secondItem="MlF-dS-xpQ" secondAttribute="centerX" id="4xU-eB-7dY"/>
+                <constraint firstItem="MlF-dS-xpQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8xh-6g-yxc"/>
+                <constraint firstItem="mT5-kp-4PZ" firstAttribute="centerX" secondItem="bhW-Qp-8b0" secondAttribute="centerX" id="C9A-bc-qVi"/>
+                <constraint firstAttribute="trailing" secondItem="MlF-dS-xpQ" secondAttribute="trailing" id="CAz-AG-wIo"/>
+                <constraint firstAttribute="centerY" secondItem="MlF-dS-xpQ" secondAttribute="bottom" id="HXR-dn-oJO"/>
+                <constraint firstItem="bhW-Qp-8b0" firstAttribute="centerX" secondItem="2L2-0I-Ksh" secondAttribute="centerX" id="NbQ-bu-9iq"/>
+                <constraint firstItem="2L2-0I-Ksh" firstAttribute="top" secondItem="MlF-dS-xpQ" secondAttribute="bottom" constant="8" id="VHE-PS-Ipm"/>
+                <constraint firstItem="MlF-dS-xpQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="XBZ-vc-H0F"/>
+                <constraint firstItem="mT5-kp-4PZ" firstAttribute="top" secondItem="bhW-Qp-8b0" secondAttribute="bottom" constant="7.5" id="eza-TM-Zes"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="accountNameLabel" destination="2L2-0I-Ksh" id="bg4-6K-vep"/>
+                <outlet property="imageView" destination="MlF-dS-xpQ" id="ACI-IA-n7z"/>
+                <outlet property="subLabel" destination="mT5-kp-4PZ" id="ddz-io-j7w"/>
+                <outlet property="valueLabel" destination="bhW-Qp-8b0" id="KAb-Gv-0Bg"/>
+            </connections>
+            <point key="canvasLocation" x="34.5" y="54.5"/>
+        </view>
+    </objects>
+</document>

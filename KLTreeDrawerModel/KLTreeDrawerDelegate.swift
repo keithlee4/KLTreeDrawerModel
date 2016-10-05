@@ -9,7 +9,8 @@
 import UIKit
 
 protocol KLTreeDrawerDelegate : NSObjectProtocol {
-    var nodeView : KLBasicNodeView! { get set }
+    
+    var nodeView : UIView! { get set }
     
     //number of leaf children
     var weight: Int { get set }
