@@ -3,28 +3,35 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="KLSubNodeView" customModule="KLTreeDrawerModel" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+            <rect key="frame" x="0.0" y="0.0" width="500" height="371"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MlF-dS-xpQ"/>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2L2-0I-Ksh">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Meme1" translatesAutoresizingMaskIntoConstraints="NO" id="MlF-dS-xpQ"/>
+                <visualEffectView opaque="NO" alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZJN-jU-j63">
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="02s-fi-Q04">
+                        <frame key="frameInset"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <blurEffect style="extraLight"/>
+                </visualEffectView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="2L2-0I-Ksh">
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bhW-Qp-8b0">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="bhW-Qp-8b0">
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mT5-kp-4PZ">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="mT5-kp-4PZ">
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -33,15 +40,22 @@
             <color key="backgroundColor" red="0.6885039210319519" green="1" blue="0.5829627513885498" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="bhW-Qp-8b0" firstAttribute="top" secondItem="2L2-0I-Ksh" secondAttribute="bottom" constant="8" id="3Wx-gP-Cwi"/>
-                <constraint firstItem="2L2-0I-Ksh" firstAttribute="centerX" secondItem="MlF-dS-xpQ" secondAttribute="centerX" id="4xU-eB-7dY"/>
+                <constraint firstAttribute="trailing" secondItem="2L2-0I-Ksh" secondAttribute="trailing" constant="8" id="5HT-tB-8RW"/>
+                <constraint firstAttribute="bottom" secondItem="ZJN-jU-j63" secondAttribute="bottom" id="8ZK-r0-H8G"/>
                 <constraint firstItem="MlF-dS-xpQ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8xh-6g-yxc"/>
-                <constraint firstItem="mT5-kp-4PZ" firstAttribute="centerX" secondItem="bhW-Qp-8b0" secondAttribute="centerX" id="C9A-bc-qVi"/>
                 <constraint firstAttribute="trailing" secondItem="MlF-dS-xpQ" secondAttribute="trailing" id="CAz-AG-wIo"/>
-                <constraint firstAttribute="centerY" secondItem="MlF-dS-xpQ" secondAttribute="bottom" id="HXR-dn-oJO"/>
-                <constraint firstItem="bhW-Qp-8b0" firstAttribute="centerX" secondItem="2L2-0I-Ksh" secondAttribute="centerX" id="NbQ-bu-9iq"/>
-                <constraint firstItem="2L2-0I-Ksh" firstAttribute="top" secondItem="MlF-dS-xpQ" secondAttribute="bottom" constant="8" id="VHE-PS-Ipm"/>
+                <constraint firstAttribute="trailing" secondItem="ZJN-jU-j63" secondAttribute="trailing" id="HZO-t5-Abn"/>
+                <constraint firstItem="2L2-0I-Ksh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="LzH-0c-VeO"/>
+                <constraint firstItem="2L2-0I-Ksh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="MZG-HL-lRo"/>
+                <constraint firstItem="bhW-Qp-8b0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="O90-vs-hTA"/>
+                <constraint firstItem="mT5-kp-4PZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="W2C-WT-mZa"/>
                 <constraint firstItem="MlF-dS-xpQ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="XBZ-vc-H0F"/>
+                <constraint firstItem="ZJN-jU-j63" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="aAN-cT-Fdr"/>
+                <constraint firstAttribute="trailing" secondItem="mT5-kp-4PZ" secondAttribute="trailing" constant="8" id="ejA-5b-CRI"/>
                 <constraint firstItem="mT5-kp-4PZ" firstAttribute="top" secondItem="bhW-Qp-8b0" secondAttribute="bottom" constant="7.5" id="eza-TM-Zes"/>
+                <constraint firstAttribute="bottom" secondItem="MlF-dS-xpQ" secondAttribute="bottom" id="iWx-TM-IId"/>
+                <constraint firstAttribute="trailing" secondItem="bhW-Qp-8b0" secondAttribute="trailing" constant="8" id="j9V-Pf-GKl"/>
+                <constraint firstItem="ZJN-jU-j63" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="mUS-fq-Wx3"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
@@ -50,7 +64,10 @@
                 <outlet property="subLabel" destination="mT5-kp-4PZ" id="ddz-io-j7w"/>
                 <outlet property="valueLabel" destination="bhW-Qp-8b0" id="KAb-Gv-0Bg"/>
             </connections>
-            <point key="canvasLocation" x="34.5" y="54.5"/>
+            <point key="canvasLocation" x="88" y="83.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="Meme1" width="250" height="187"/>
+    </resources>
 </document>

@@ -16,12 +16,10 @@
 		7A38B0D11D9E461200AFE577 /* KLTreeDrawerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A38B0D01D9E461200AFE577 /* KLTreeDrawerDelegate.swift */; };
 		7A38B0D31D9E48D800AFE577 /* KLTreeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A38B0D21D9E48D800AFE577 /* KLTreeView.swift */; };
 		8B22A3EC1DA26BD3009CA857 /* KLNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B22A3EB1DA26BD3009CA857 /* KLNode.swift */; };
-		8B22A3EF1DA2710A009CA857 /* KLNodeDependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B22A3EE1DA2710A009CA857 /* KLNodeDependency.swift */; };
 		8B26937C1DA4AF8B00EFE10A /* KLTreeTestGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B26937B1DA4AF8B00EFE10A /* KLTreeTestGenerator.swift */; };
 		8B26937E1DA4B1A800EFE10A /* KLSubNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B26937D1DA4B1A800EFE10A /* KLSubNode.swift */; };
 		8B2693811DA4D02300EFE10A /* KLSubNodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2693801DA4D02300EFE10A /* KLSubNodeView.swift */; };
 		8B2693831DA4D03400EFE10A /* KLSubNodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B2693821DA4D03400EFE10A /* KLSubNodeView.xib */; };
-		8B2693861DA4EEA100EFE10A /* KLSubNodePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2693851DA4EEA100EFE10A /* KLSubNodePresenter.swift */; };
 		8B2693881DA4F07500EFE10A /* KLSubNodeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2693871DA4F07500EFE10A /* KLSubNodeInteractor.swift */; };
 		8B26938A1DA4F0A200EFE10A /* KLSubNodeBasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2693891DA4F0A200EFE10A /* KLSubNodeBasicInfo.swift */; };
 		8B5A986E1DA35AE700552B7A /* KLBasicNodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5A986D1DA35AE700552B7A /* KLBasicNodeView.swift */; };
@@ -29,7 +27,10 @@
 		8B5A98721DA3813900552B7A /* KLHiearchyScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5A98711DA3813900552B7A /* KLHiearchyScrollView.swift */; };
 		8B5A98741DA381B400552B7A /* KLTreeDrawerGlobals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5A98731DA381B400552B7A /* KLTreeDrawerGlobals.swift */; };
 		8B75BC031DA20AAD00606980 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B75BC021DA20AAD00606980 /* UIColor+Hex.swift */; };
-		8BC0E2F61DA49780001B1ED4 /* KLNodePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0E2F51DA49780001B1ED4 /* KLNodePresenter.swift */; };
+		8B7E47E01DA756C000C668A9 /* KLDefaultNodeViewInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E47DF1DA756C000C668A9 /* KLDefaultNodeViewInterface.swift */; };
+		8B7E47E41DA775C900C668A9 /* UIApplication+Top.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E47E31DA775C900C668A9 /* UIApplication+Top.swift */; };
+		8B7E47E61DA7784B00C668A9 /* UIAlertController+EasyGen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E47E51DA7784B00C668A9 /* UIAlertController+EasyGen.swift */; };
+		8B7E47E81DA77C5000C668A9 /* UIViewController+QuickAlertPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7E47E71DA77C5000C668A9 /* UIViewController+QuickAlertPopUp.swift */; };
 		8BC0E2F81DA49813001B1ED4 /* KLNodeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0E2F71DA49813001B1ED4 /* KLNodeInteractor.swift */; };
 		8BC0E2FA1DA4983B001B1ED4 /* KLNodeBasicInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC0E2F91DA4983B001B1ED4 /* KLNodeBasicInfo.swift */; };
 /* End PBXBuildFile section */
@@ -46,12 +47,10 @@
 		7A38B0D01D9E461200AFE577 /* KLTreeDrawerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLTreeDrawerDelegate.swift; sourceTree = "<group>"; };
 		7A38B0D21D9E48D800AFE577 /* KLTreeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLTreeView.swift; sourceTree = "<group>"; };
 		8B22A3EB1DA26BD3009CA857 /* KLNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLNode.swift; sourceTree = "<group>"; };
-		8B22A3EE1DA2710A009CA857 /* KLNodeDependency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLNodeDependency.swift; sourceTree = "<group>"; };
 		8B26937B1DA4AF8B00EFE10A /* KLTreeTestGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLTreeTestGenerator.swift; sourceTree = "<group>"; };
 		8B26937D1DA4B1A800EFE10A /* KLSubNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLSubNode.swift; sourceTree = "<group>"; };
 		8B2693801DA4D02300EFE10A /* KLSubNodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLSubNodeView.swift; sourceTree = "<group>"; };
 		8B2693821DA4D03400EFE10A /* KLSubNodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KLSubNodeView.xib; sourceTree = "<group>"; };
-		8B2693851DA4EEA100EFE10A /* KLSubNodePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLSubNodePresenter.swift; sourceTree = "<group>"; };
 		8B2693871DA4F07500EFE10A /* KLSubNodeInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLSubNodeInteractor.swift; sourceTree = "<group>"; };
 		8B2693891DA4F0A200EFE10A /* KLSubNodeBasicInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLSubNodeBasicInfo.swift; sourceTree = "<group>"; };
 		8B5A986D1DA35AE700552B7A /* KLBasicNodeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLBasicNodeView.swift; sourceTree = "<group>"; };
@@ -59,7 +58,10 @@
 		8B5A98711DA3813900552B7A /* KLHiearchyScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLHiearchyScrollView.swift; sourceTree = "<group>"; };
 		8B5A98731DA381B400552B7A /* KLTreeDrawerGlobals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLTreeDrawerGlobals.swift; sourceTree = "<group>"; };
 		8B75BC021DA20AAD00606980 /* UIColor+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
-		8BC0E2F51DA49780001B1ED4 /* KLNodePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLNodePresenter.swift; sourceTree = "<group>"; };
+		8B7E47DF1DA756C000C668A9 /* KLDefaultNodeViewInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLDefaultNodeViewInterface.swift; sourceTree = "<group>"; };
+		8B7E47E31DA775C900C668A9 /* UIApplication+Top.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIApplication+Top.swift"; sourceTree = "<group>"; };
+		8B7E47E51DA7784B00C668A9 /* UIAlertController+EasyGen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+EasyGen.swift"; sourceTree = "<group>"; };
+		8B7E47E71DA77C5000C668A9 /* UIViewController+QuickAlertPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+QuickAlertPopUp.swift"; sourceTree = "<group>"; };
 		8BC0E2F71DA49813001B1ED4 /* KLNodeInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLNodeInteractor.swift; sourceTree = "<group>"; };
 		8BC0E2F91DA4983B001B1ED4 /* KLNodeBasicInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KLNodeBasicInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +113,9 @@
 			isa = PBXGroup;
 			children = (
 				8B75BC021DA20AAD00606980 /* UIColor+Hex.swift */,
+				8B7E47E31DA775C900C668A9 /* UIApplication+Top.swift */,
+				8B7E47E51DA7784B00C668A9 /* UIAlertController+EasyGen.swift */,
+				8B7E47E71DA77C5000C668A9 /* UIViewController+QuickAlertPopUp.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -118,8 +123,8 @@
 		8B22A3ED1DA26E0A009CA857 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8BC0E2F01DA495CA001B1ED4 /* Tree View */,
 				8BC0E2F11DA495D0001B1ED4 /* Tree View Container */,
+				8BC0E2F01DA495CA001B1ED4 /* Tree View */,
 				8BC0E2EE1DA495AB001B1ED4 /* Node View */,
 			);
 			name = View;
@@ -129,9 +134,8 @@
 			isa = PBXGroup;
 			children = (
 				8B22A3EB1DA26BD3009CA857 /* KLNode.swift */,
-				8BC0E2F51DA49780001B1ED4 /* KLNodePresenter.swift */,
-				8BC0E2F71DA49813001B1ED4 /* KLNodeInteractor.swift */,
 				8BC0E2F91DA4983B001B1ED4 /* KLNodeBasicInfo.swift */,
+				8BC0E2F71DA49813001B1ED4 /* KLNodeInteractor.swift */,
 			);
 			name = "Basic Node";
 			sourceTree = "<group>";
@@ -140,9 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				8B26937D1DA4B1A800EFE10A /* KLSubNode.swift */,
-				8B2693851DA4EEA100EFE10A /* KLSubNodePresenter.swift */,
-				8B2693871DA4F07500EFE10A /* KLSubNodeInteractor.swift */,
 				8B2693891DA4F0A200EFE10A /* KLSubNodeBasicInfo.swift */,
+				8B2693871DA4F07500EFE10A /* KLSubNodeInteractor.swift */,
 			);
 			name = "Sub Node";
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 		8BC0E2EE1DA495AB001B1ED4 /* Node View */ = {
 			isa = PBXGroup;
 			children = (
+				8B7E47DF1DA756C000C668A9 /* KLDefaultNodeViewInterface.swift */,
 				8B26938C1DA4F26800EFE10A /* Basic Node */,
 				8B26938B1DA4F26200EFE10A /* Sub Node */,
 			);
@@ -188,7 +192,6 @@
 				8BC0E2F21DA495FE001B1ED4 /* Interface / Protocol */,
 				8B26937F1DA4BBD000EFE10A /* Basic Node */,
 				8B2693841DA4EE8B00EFE10A /* Sub Node */,
-				8B22A3EE1DA2710A009CA857 /* KLNodeDependency.swift */,
 			);
 			name = "Node Controller";
 			sourceTree = "<group>";
@@ -311,23 +314,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B2693861DA4EEA100EFE10A /* KLSubNodePresenter.swift in Sources */,
 				8B26937C1DA4AF8B00EFE10A /* KLTreeTestGenerator.swift in Sources */,
+				8B7E47E61DA7784B00C668A9 /* UIAlertController+EasyGen.swift in Sources */,
 				8B26937E1DA4B1A800EFE10A /* KLSubNode.swift in Sources */,
 				8BC0E2F81DA49813001B1ED4 /* KLNodeInteractor.swift in Sources */,
 				7A38B0D11D9E461200AFE577 /* KLTreeDrawerDelegate.swift in Sources */,
 				7A38B0C41D9E459400AFE577 /* KLTreeDrawerModel.xcdatamodeld in Sources */,
+				8B7E47E41DA775C900C668A9 /* UIApplication+Top.swift in Sources */,
 				8B2693881DA4F07500EFE10A /* KLSubNodeInteractor.swift in Sources */,
 				7A38B0BE1D9E459400AFE577 /* ViewController.swift in Sources */,
 				8B5A98721DA3813900552B7A /* KLHiearchyScrollView.swift in Sources */,
 				8B75BC031DA20AAD00606980 /* UIColor+Hex.swift in Sources */,
 				7A38B0BC1D9E459400AFE577 /* AppDelegate.swift in Sources */,
-				8B22A3EF1DA2710A009CA857 /* KLNodeDependency.swift in Sources */,
 				8B26938A1DA4F0A200EFE10A /* KLSubNodeBasicInfo.swift in Sources */,
+				8B7E47E01DA756C000C668A9 /* KLDefaultNodeViewInterface.swift in Sources */,
 				8B2693811DA4D02300EFE10A /* KLSubNodeView.swift in Sources */,
+				8B7E47E81DA77C5000C668A9 /* UIViewController+QuickAlertPopUp.swift in Sources */,
 				8B5A98741DA381B400552B7A /* KLTreeDrawerGlobals.swift in Sources */,
 				7A38B0D31D9E48D800AFE577 /* KLTreeView.swift in Sources */,
-				8BC0E2F61DA49780001B1ED4 /* KLNodePresenter.swift in Sources */,
 				8B5A986E1DA35AE700552B7A /* KLBasicNodeView.swift in Sources */,
 				8B22A3EC1DA26BD3009CA857 /* KLNode.swift in Sources */,
 				8BC0E2FA1DA4983B001B1ED4 /* KLNodeBasicInfo.swift in Sources */,

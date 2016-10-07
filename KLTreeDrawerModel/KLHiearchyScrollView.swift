@@ -7,12 +7,13 @@
 //
 
 import UIKit
-
 protocol KLHierachyScrollViewInterface {
     var tapGes: UITapGestureRecognizer! { get set }
     var treeView: KLTreeView! { get set }
     
     func tapScreen(tapGes:UITapGestureRecognizer)
+    
+    func relayout(with root:KLTreeDrawerDelegate)
 }
 
 class KLHiearchyScrollView: UIScrollView, UIScrollViewDelegate, KLHierachyScrollViewInterface {
@@ -41,11 +42,10 @@ class KLHiearchyScrollView: UIScrollView, UIScrollViewDelegate, KLHierachyScroll
         
         self.addGestureRecognizer(self.tapGes)
         
-        self.treeView = KLTreeView.init(frame: frame, withRoot: root)
-        self.treeView.backgroundColor = root.backgroundColor ?? UIColor.black
-        
         self.delegate = self
         
+        self.treeView = KLTreeView.init(frame: frame, withRoot: root, in: self)
+        self.treeView.backgroundColor = root.backgroundColor ?? UIColor.clear
         self.addSubview(self.treeView)
     }
     
@@ -62,6 +62,14 @@ class KLHiearchyScrollView: UIScrollView, UIScrollViewDelegate, KLHierachyScroll
         self.zoomScale = kTreeScrollViewOriginalZoomScale
     }
     
+    func relayout(with root: KLTreeDrawerDelegate) {
+        self.treeView.removeFromSuperview()
+        
+        self.treeView = KLTreeView.init(frame: self.frame, withRoot: root, in:self)
+        self.treeView.backgroundColor = root.backgroundColor ?? UIColor.clear
+        
+        self.addSubview(self.treeView)
+    }
     
     
     

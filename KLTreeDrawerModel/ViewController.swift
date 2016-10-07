@@ -26,7 +26,7 @@ class ViewController: UIViewController {
 
 
     func setup() -> KLTreeDrawerDelegate {
-        let root = KLTreeTestGenerator.genTree(for:[2,3,2])
+        let root = KLTreeTestGenerator.genTree(for:kTreeTestGenNodes)
         
         /*let root = KLNode.random()
         

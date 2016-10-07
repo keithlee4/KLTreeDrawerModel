@@ -1,3 +1,4 @@
+
 //
 //  KLNodeTestGenerator.swift
 //  KLTreeDrawerModel
@@ -9,26 +10,35 @@
 import UIKit
 
 class KLTreeTestGenerator: NSObject {
-    enum NodeType{
-        case basic
-        case sub
+    enum NodeType : Int{
+        case basic = 0
+        case sub = 1
     }
     
     //ex level = 3, childounts = [2.4] , count shuold be level - 1
-    static func genTree(for childCounts:[Int]) -> KLTreeDrawerDelegate{
-        let root = KLNode.random()
-        
+    static func genTree(for childCounts:[Int], withRoot root: KLTreeDrawerDelegate? = nil) -> KLTreeDrawerDelegate{
+        var newRoot : KLTreeDrawerDelegate!
+        if let r = root as? KLSubNode{
+            newRoot = KLNode.init(with: KLNodeBasicInfo(accountName: r.accountName, value: r.value, imageName: r.imageName, mainColor: UIColor.lightGray), children: r.children)
+        }else{
+            newRoot = KLNode.random()
+        }
+
         var currnetLevel = 0
         var targetParents = [KLTreeDrawerDelegate]()
-        targetParents.append(root)
+        targetParents.append(newRoot)
         
         while currnetLevel < childCounts.count {
-            let type : NodeType = currnetLevel == childCounts.count - 1 ? .basic : .sub
+            let type : NodeType = currnetLevel == childCounts.count - 1 ? .sub : .basic
             
             let count = childCounts[currnetLevel]
             
             var nextParents = [KLTreeDrawerDelegate]()
             for p in targetParents {
+//                let randCount = Int(arc4random()) % count + 1
+//                let randTypeRaw = Int(arc4random()) % 2
+//                let randType = NodeType(rawValue: randTypeRaw)!
+                
                 let children = genChidlren(with: count, type: type)
                 p.children = children
                 
@@ -40,7 +50,7 @@ class KLTreeTestGenerator: NSObject {
             
         }
         
-        return root
+        return newRoot
     }
     
     static func genChidlren(with count:Int, type:NodeType) -> [KLTreeDrawerDelegate]{

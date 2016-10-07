@@ -18,6 +18,8 @@ protocol KLTreeDrawerDelegate : NSObjectProtocol {
     //start x position of node
     var startX: Int { get set }
     
+    var level: Int { get set }
+    
     //background of the container view of nodes
     var backgroundColor: UIColor? { get set }
     

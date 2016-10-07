@@ -12,28 +12,34 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="obH-Kg-Vbb"/>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BDJ-nH-QOy">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="obH-Kg-Vbb"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="BDJ-nH-QOy">
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCC-s6-gdC">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="gCC-s6-gdC">
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="gCC-s6-gdC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="0s2-XX-TG9"/>
                 <constraint firstItem="obH-Kg-Vbb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3Dw-OH-nan"/>
+                <constraint firstAttribute="trailing" secondItem="gCC-s6-gdC" secondAttribute="trailing" constant="8" id="3Jh-Vh-2Dq"/>
                 <constraint firstAttribute="trailing" secondItem="obH-Kg-Vbb" secondAttribute="trailing" id="B0c-wr-dtF"/>
+                <constraint firstItem="BDJ-nH-QOy" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="GV9-Jg-ibd"/>
                 <constraint firstItem="obH-Kg-Vbb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="KKe-G6-bUq"/>
                 <constraint firstItem="gCC-s6-gdC" firstAttribute="centerX" secondItem="BDJ-nH-QOy" secondAttribute="centerX" id="Yfs-Jq-mn6"/>
-                <constraint firstItem="BDJ-nH-QOy" firstAttribute="centerY" secondItem="obH-Kg-Vbb" secondAttribute="centerY" id="YhM-yh-sRA"/>
                 <constraint firstAttribute="bottom" secondItem="obH-Kg-Vbb" secondAttribute="bottom" id="ZoS-Sh-4Ks"/>
                 <constraint firstItem="BDJ-nH-QOy" firstAttribute="centerX" secondItem="obH-Kg-Vbb" secondAttribute="centerX" id="ZtG-s7-Tdb"/>
+                <constraint firstItem="BDJ-nH-QOy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="aEh-an-Tze"/>
                 <constraint firstItem="gCC-s6-gdC" firstAttribute="top" secondItem="BDJ-nH-QOy" secondAttribute="bottom" constant="8" id="bES-S4-uIV"/>
+                <constraint firstAttribute="trailing" secondItem="BDJ-nH-QOy" secondAttribute="trailing" constant="8" id="byA-NG-1wO"/>
             </constraints>
             <connections>
                 <outlet property="accountNameLabel" destination="BDJ-nH-QOy" id="1L4-t4-FkZ"/>

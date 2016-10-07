@@ -8,12 +8,15 @@
 
 import UIKit
 
-//MARK: - Tree View
-let kTreeScrollViewBackgroundColor: UIColor = UIColor.blue
+//MARK: - For Test
+let kTreeTestGenNodes : [Int] = [2,2,2]
+
+//MARK: - Tree Viewå
+let kTreeScrollViewBackgroundColor: UIColor = UIColor.clear
 let kTreeScrollViewMinZoomScale: CGFloat = 0.1
 let kTreeScrollViewOriginalZoomScale: CGFloat = 1.0
 let kTreeScrollViewMaxZoomScale: CGFloat = 2.0
 
 let kTreeScrollViewTapGesture_NumberOfTapsRequired : Int = 2
 
-let kNodeSize : CGSize = CGSize(width: 100, height: 100)
+let kNodeSize : CGSize = CGSize(width: 50, height: 50)

@@ -13,13 +13,13 @@ let kTreeNodeGapHeight  : CGFloat = 50
 let kTreeNodeViewShiftX : CGFloat = 30
 let kTreeNodeViewShiftY : CGFloat = 0
 
-let kTreeLineThickness : CGFloat = 3.0
+let kTreeLineThickness : CGFloat = 1.0
 let kLineColorHex = 0x939598
 
 class KLTreeView:UIView {
 
+    weak var parentScrollView : UIScrollView?
     var root: KLTreeDrawerDelegate!
-    
     
     private var numOfNodes: Int = 0
     
@@ -36,7 +36,7 @@ class KLTreeView:UIView {
     }
     
     //MARK: Initialization
-    init(frame:CGRect, withRoot root: KLTreeDrawerDelegate){
+    init(frame:CGRect, withRoot root: KLTreeDrawerDelegate, in scrollView:UIScrollView){
         super.init(frame:frame)
         
         let numOfNodes = getNumbersOfNodes(in: root)
@@ -48,6 +48,10 @@ class KLTreeView:UIView {
         
         self.backgroundColor = UIColor.white
         self.root = root
+        
+        scrollView.contentOffset = CGPoint(x: treeSize.width / 2 - frame.size.width / 2, y: 0)
+        self.parentScrollView = scrollView
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -130,6 +134,15 @@ class KLTreeView:UIView {
         
     }
     
+    func determineViewFrameWith(startNode node:KLTreeDrawerDelegate, rowWidth:Int, rowNumber row:Int){
+        let startX : CGFloat = CGFloat(node.startX) + viewShift.x
+        let startY : CGFloat = CGFloat(row + 1) * (gap.height + node.nodeView.bounds.size.height) + viewShift.y
+        
+        let nodeFrame = CGRect(origin: CGPoint(x: startX, y: startY), size: node.nodeView.bounds.size)
+        node.nodeView.frame = nodeFrame
+        
+    }
+    
     //Add the given view at the pre_calculated position
     func drawViewWith(startNode node:KLTreeDrawerDelegate, rowWidth:Int, rowNumber row:Int){
         let startX : CGFloat = CGFloat(node.startX) + viewShift.x
@@ -138,7 +151,13 @@ class KLTreeView:UIView {
         let nodeFrame = CGRect(origin: CGPoint(x: startX, y: startY), size: node.nodeView.bounds.size)
         node.nodeView.frame = nodeFrame
         
+        node.nodeView.alpha = 0.0
+        
         self.addSubview(node.nodeView)
+        UIView.animate(withDuration: 0.2) {
+            node.nodeView.alpha = 1.0
+        }
+        
         addTapGesture(to: node)
         
     }
@@ -153,7 +172,13 @@ class KLTreeView:UIView {
     override func draw(_ rect: CGRect) {
         var rows = [Int]()
         dfSearch(For: self.root, withRowNumber: 0, withRows: &rows)
+        print("Finish First Search")
+        
         postOrderTraverse(node: self.root, inRow: 0)
+        print("Finish Post Search")
+        
+        drawNode(from: self.root, withLevel: 0)
+        print("Draw Nodes Finish")
     }
     
     //MARK: - Tree Traversal
@@ -164,7 +189,7 @@ class KLTreeView:UIView {
         //visit and draw node
         let rowWidth: CGFloat = CGFloat(node.weight) * (node.nodeView.bounds.size.width + gap.width)
         if node.children == nil || node.children?.count == 0 {
-            drawViewWith(startNode: node, rowWidth: Int(rowWidth), rowNumber: row)
+//            drawViewWith(startNode: node, rowWidth: Int(rowWidth), rowNumber: row)
         }
         guard let children = node.children else{
             return
@@ -181,6 +206,8 @@ class KLTreeView:UIView {
             }
             
             child.startX = rowsStart[row]
+            child.level = row
+            
             let childRowWidth = CGFloat(child.weight) * (child.nodeView.bounds.size.width + gap.width)
             
             //update row satrt point
@@ -207,14 +234,45 @@ class KLTreeView:UIView {
                     let lastNodeX : Int = children.last!.startX
                     
                     node!.startX = firstNodeX + (lastNodeX - firstNodeX)/2
+                    node!.level = row
                     
-                    let rowWidth: CGFloat = CGFloat(n.weight) * (n.nodeView.bounds.size.width + gap.width)
-                    drawViewWith(startNode: n, rowWidth: Int(rowWidth), rowNumber: row)
+//                    let rowWidth: CGFloat = CGFloat(n.weight) * (n.nodeView.bounds.size.width + gap.width)
+//                    drawViewWith(startNode: n, rowWidth: Int(rowWidth), rowNumber: row)
                 }
+            }else{
+                node!.level = row
             }
             
-            drawArc(from: n, withLevel: row)
+//            drawArc(from: n, withLevel: row)
         }
+    }
+    
+    //NOTE: A BFS Drawing Path
+    func drawNode(from node:KLTreeDrawerDelegate, withLevel row: Int){
+        var queue = [node]
+        let rowWidth: CGFloat = CGFloat(node.weight) * (node.nodeView.bounds.size.width + gap.width)
+        drawViewWith(startNode: node, rowWidth: Int(rowWidth), rowNumber: node.level)
+        drawArc(from: node, withLevel: node.level)
+        
+        //Current Row Calculation is wrong, it add too much times.
+        while let firstN = queue.first {
+            if let children = firstN.children, children.count > 0 {
+                for child in children {
+                    let rw: CGFloat = CGFloat(child.weight) * (child.nodeView.bounds.size.width + gap.width)
+                    drawViewWith(startNode: child, rowWidth: Int(rw), rowNumber: child.level)
+                    drawArc(from: child, withLevel: child.level)
+                    
+                    queue.append(child)
+                }
+                
+                if queue.count > 0 {
+                    queue.removeFirst(1)
+                }
+            }else{
+                queue.removeFirst(1)
+            }
+        }
+        
     }
     
     //Using dfs to get total children numbers of specific node.

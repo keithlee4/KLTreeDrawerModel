@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol KLBasicSubNodeInterface : KLBasicNodeInterface {
+protocol KLBasicSubNodeViewInterface : KLDefaultNodeViewInterface {
     
 }
 
-class KLSubNodeView: UIView, KLBasicSubNodeInterface {
+class KLSubNodeView: UIView, KLBasicSubNodeViewInterface {
     typealias NodeType = KLSubNode
     
     @IBOutlet weak var imageView: UIImageView!
@@ -45,7 +45,7 @@ class KLSubNodeView: UIView, KLBasicSubNodeInterface {
         self.backgroundColor = node.mainColor
 
         
-        self.subLabel.text = self.node.subNodeText
+        self.subLabel.text = self.node.subNodeDesc
     }
     
     class func xibInstance<T>(with frame:CGRect, node:NodeType) -> T? where T : KLSubNodeView {
@@ -58,6 +58,8 @@ class KLSubNodeView: UIView, KLBasicSubNodeInterface {
         
         instance.frame = frame
         instance.node = node
+        instance.clipsToBounds = true
+        instance.layer.cornerRadius = frame.size.width / 2.0
         
         instance.updateLayout()
         

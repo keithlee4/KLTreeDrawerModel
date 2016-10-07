@@ -19,15 +19,19 @@ protocol KLSubNodeBasicVariableInterface {
 }
 
 //NOTE: This define presenter-triggered actions.
-protocol KLSubNodeInterface  {
+protocol KLSubNodeActionInterface  {
     func updateAccount(with accountName:String)
     func updateValue(with value:Double)
     func updateImageName(with name:String)
 }
 
+protocol KLSubNodeBasicInterface : KLSubNodeActionInterface, KLSubNodeBasicVariableInterface {
+    
+}
 
 
-class KLSubNode: NSObject, KLTreeDrawerDelegate {
+
+class KLSubNode: NSObject, KLTreeDrawerDelegate, KLSubNodeBasicInterface {
     
     //MARK: - Var
     //MARK: Tree Drawer Delegate
@@ -36,29 +40,22 @@ class KLSubNode: NSObject, KLTreeDrawerDelegate {
     var startX: Int = 0
     var backgroundColor: UIColor?
     var children: [KLTreeDrawerDelegate]?
+    var treeView: KLTreeView!
+    var level: Int = 0
     
     //MARK: -
     
     //MARK: Node Interface Var
     var imageName: String?
     var mainColor: UIColor?
-    //MARK: -
-    
-    //MARK: Spectific Var, all these var should be optional to support propable extensions in future.
     var accountName: String?
     var value: Double?
-    var subNodeText : String?
+    var subNodeDesc : String?
     
-    //MARK: -
-    
-    
-    final var presenter: KLSubNodePresenter!
     
     
     required init(with info:KLSubNodeBasicInfo, children:[KLTreeDrawerDelegate]? = nil){
         super.init()
-        
-        KLNodeDependency.configreDependencies(of: self)
         
         if let c = children{
             self.children = c
@@ -68,6 +65,7 @@ class KLSubNode: NSObject, KLTreeDrawerDelegate {
         self.value = info.value
         self.imageName = info.imageName
         self.mainColor = info.mainColor
+        self.nodeView = KLSubNodeView.xibInstance(with: CGRect(origin: .zero, size: kNodeSize), node: self)
     }
     
     //NOTE: Gesture and Selector would be implemented when Tree View actually draw this node on the view,
@@ -75,7 +73,20 @@ class KLSubNode: NSObject, KLTreeDrawerDelegate {
     //      More info could be found in "func addTapGesture(to node:KLTreeDrawerDelegate)".
     func viewTapped() {
         print("sub tapped~~~~~")
-        self.presenter.nodeViewTapped()
+        guard let tree = self.nodeView.superview as? KLTreeView else {
+            print("Node is not in subview of a tree")
+            return
+        }
+        
+        guard let scrollView = tree.superview as? KLHiearchyScrollView else{
+            print("Tree is not in subview of a scorllView")
+            return
+        }
+        
+        
+        let newRoot = KLTreeTestGenerator.genTree(for: kTreeTestGenNodes, withRoot: self)
+        scrollView.relayout(with: newRoot)
+        
     }
     
     //MARK: - Node Interface Func
@@ -91,15 +102,17 @@ class KLSubNode: NSObject, KLTreeDrawerDelegate {
         self.imageName = name
     }
     
+
+}
+
+//MARK: - For Test
+extension KLSubNode {
     class func random<T>(with children:[KLTreeDrawerDelegate]? = nil) -> T where T : KLSubNode{
-        let accountName = "testRandom"
         let randomValue : Double = Double(arc4random() % 100)
+        let accountName = "Sub Node: \(randomValue)"
         let testInfo = KLSubNodeBasicInfo(accountName: accountName, value: randomValue, imageName: "Meme" + String(Int(randomValue) % 2 + 1), mainColor: UIColor.green, subNodeDesc: "subNode !!!!")
         let node =  T(with: testInfo, children: children)
-        node.nodeView = KLSubNodeView.xibInstance(with: CGRect(origin: .zero, size: kNodeSize), node: node)
         
         return node
     }
-
-
 }

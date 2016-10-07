@@ -29,8 +29,12 @@ protocol KLNodeActionInterface  {
 }
 
 
+protocol KLNodeBasicInterface : KLNodeBasicVariableInterface, KLNodeActionInterface {
+    
+}
 
-class KLNode: NSObject, KLTreeDrawerDelegate, KLNodeActionInterface, KLNodeBasicVariableInterface {
+
+class KLNode: NSObject, KLTreeDrawerDelegate, KLNodeBasicInterface {
 //    typealias NodeViewType : KLBasicNodeView = KLBasicNodeView
     
     //MARK: - Var 
@@ -40,6 +44,7 @@ class KLNode: NSObject, KLTreeDrawerDelegate, KLNodeActionInterface, KLNodeBasic
     var startX: Int = 0
     var backgroundColor: UIColor?
     var children: [KLTreeDrawerDelegate]?
+    var level: Int = 0
     
     //MARK: -
     
@@ -52,16 +57,11 @@ class KLNode: NSObject, KLTreeDrawerDelegate, KLNodeActionInterface, KLNodeBasic
     var accountName: String?
     var value: Double?
     
-    //MARK: -
-    
-    
-    final var presenter: KLNodePresenter!
 
     
     required init(with info:KLNodeBasicInfo, children:[KLTreeDrawerDelegate]? = nil){
         super.init()
-    
-        KLNodeDependency.configreDependencies(of: self)
+
         
         if let c = children{
             self.children = c
@@ -71,6 +71,7 @@ class KLNode: NSObject, KLTreeDrawerDelegate, KLNodeActionInterface, KLNodeBasic
         self.value = info.value
         self.imageName = info.imageName
         self.mainColor = info.mainColor
+        self.nodeView = KLBasicNodeView.xibInstance(with: CGRect(origin: .zero, size: kNodeSize), node: self)
     }
     
     //NOTE: Gesture and Selector would be implemented when Tree View actually draw this node on the view, 
@@ -78,7 +79,18 @@ class KLNode: NSObject, KLTreeDrawerDelegate, KLNodeActionInterface, KLNodeBasic
     //      More info could be found in "func addTapGesture(to node:KLTreeDrawerDelegate)".
     func viewTapped() {
         print("tapped~~~~~")
-        self.presenter.nodeViewTapped()
+        
+        guard let topVC = UIApplication.topViewController() else{
+            return
+        }
+        
+        topVC.showSimplePopUp(with: "Node Tapped", contents: "This node startX : \(startX)", cancelTitle: "Cancel", cancelHandler: nil)
+        
+        if let v = value, let nView = nodeView as? KLBasicNodeView {
+            let newValue = v + 10
+            value = newValue
+            nView.updateLayout()
+        }
     }
     
     //MARK: - Node Interface Func
@@ -100,11 +112,10 @@ class KLNode: NSObject, KLTreeDrawerDelegate, KLNodeActionInterface, KLNodeBasic
 //MARK: - Test
 extension KLNode{
     class func random<T>(with children:[KLTreeDrawerDelegate]? = nil) -> T where T : KLNode{
-        let accountName = "testRandom"
         let randomValue : Double = Double(arc4random() % 100)
+        let accountName = "Basic Node: \(randomValue)"
         let testInfo = KLNodeBasicInfo(accountName: accountName, value: randomValue, imageName: "Meme" + String(Int(randomValue) % 2 + 1), mainColor: UIColor.darkGray)
         let node =  T(with: testInfo, children: children)
-        node.nodeView = KLBasicNodeView.xibInstance(with: CGRect(origin: .zero, size: kNodeSize), node: node)
         
         return node
     }

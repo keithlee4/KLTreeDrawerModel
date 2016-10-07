@@ -10,18 +10,11 @@ import UIKit
 
 let kBasicNodeValueNilDefault : Double = 0
 
-protocol KLBasicNodeInterface {
-    associatedtype NodeType
-    
-    //This var is the xib || storyboard name of this node view.
-    static func xibName() -> String
-    
-    var node: NodeType! { get set }
-    //This func is call to update all the layout from node's var change
-    func updateLayout()
+protocol KLBasicNodeViewInterface : KLDefaultNodeViewInterface{
+
 }
 
-class KLBasicNodeView: UIView, KLBasicNodeInterface {
+class KLBasicNodeView: UIView, KLBasicNodeViewInterface {
     typealias NodeType = KLNode
     
     @IBOutlet weak var imageView: UIImageView!
@@ -53,8 +46,9 @@ class KLBasicNodeView: UIView, KLBasicNodeInterface {
         
         instance.frame = frame
         instance.node = node
-        
         instance.updateLayout()
+        instance.clipsToBounds = true
+        instance.layer.cornerRadius = frame.size.width / 2.0
         
         return instance 
     }
