@@ -9,7 +9,7 @@
 import UIKit
 
 //MARK: - For Test
-let kTreeTestGenNodes : [Int] = [2,2,2]
+let kTreeTestGenNodes : [Int] = [2,5,4]
 
 //MARK: - Tree Viewå
 let kTreeScrollViewBackgroundColor: UIColor = UIColor.clear
